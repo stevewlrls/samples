@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <title>Rocket Sample</title>
+    <style>
+      .rocketArea {
+        position: relative;
+        background: darkblue;
+        min-height: 50px;
+      }
+      #rocket {
+        position: absolute;
+        top: 5px;
+      }
+      .buttons {
+        margin-top: 1em;
+        display: flex;
+        gap: 1em;
+        font-size: 140%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rocketArea">
+      <img
+        id="rocket"
+        src="https://pixabay.com/images/download/rocket-147466_640.png"
+        height="40"
+      />
+    </div>
+    <div class="buttons">
+      <button id="moveLeft">&#x25C0;</button>
+      <button id="moveRight">&#x25B6;</button>
+    </div>
+    <script>
+      let position = 0
+      let rocket = document.getElementById('rocket')
+      let max = window.innerWidth - rocket.clientWidth
+      function moveLeft() {
+        if (position > 0) {
+          position -= 10
+          rocket.style.left = position + 'px'
+        }
+      }
+      function moveRight() {
+        if (position + 10 <= max) {
+          position += 10
+          rocket.style.left = position + 'px'
+        }
+      }
+    </script>
+  </body>
+</html>

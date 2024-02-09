@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <title>THREE.JS Cube</title>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <canvas
+      style="width: 300px; height: 450px; background-color: black"
+    ></canvas>
+    <script type="module">
+      import * as THREE from 'three'
+
+      const canvas = document.querySelector('canvas')
+      const renderer = new THREE.WebGLRenderer({
+        antiAlias: true,
+        canvas
+      })
+
+      const scene = new THREE.Scene()
+      const camera = new THREE.PerspectiveCamera(75, 0.75, 0.1, 5)
+      camera.position.z = 4
+      camera.position.y = -1.5
+
+      const light = new THREE.DirectionalLight(0xffffff, 3)
+      light.position.set(3, 3, 3)
+      scene.add(light)
+
+      const geometry = new THREE.BoxGeometry(1, 1, 1)
+      const material = new THREE.MeshPhongMaterial({ color: 0xff8080 })
+      const cube = new THREE.Mesh(geometry, material)
+
+      scene.add(cube)
+
+      function render(time) {
+        time /= 1000
+        cube.rotation.y = time
+        cube.rotation.x = time
+        renderer.render(scene, camera)
+        requestAnimationFrame(render)
+      }
+      render()
+    </script>
+  </body>
+</html>
