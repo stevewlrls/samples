@@ -12,25 +12,28 @@
   </head>
   <body>
     <canvas
-      style="width: 300px; height: 450px; background-color: black"
+      style="width: 600px; height: 450px; background-color: black"
     ></canvas>
     <script type="module">
       import * as THREE from 'three'
 
       const canvas = document.querySelector('canvas')
       const renderer = new THREE.WebGLRenderer({
-        antiAlias: true,
+        antialias: true,
         canvas
       })
 
       const scene = new THREE.Scene()
-      const camera = new THREE.PerspectiveCamera(75, 0.75, 0.1, 5)
+      const camera = new THREE.PerspectiveCamera(75, 600 / 450, 0.1, 5)
       camera.position.z = 4
       camera.position.y = -1.5
 
       const light = new THREE.DirectionalLight(0xffffff, 3)
       light.position.set(3, 3, 3)
       scene.add(light)
+
+      const ambient = new THREE.AmbientLight(0x404040)
+      scene.add(ambient)
 
       const geometry = new THREE.BoxGeometry(1, 1, 1)
       const material = new THREE.MeshPhongMaterial({ color: 0xff8080 })
@@ -45,7 +48,7 @@
         renderer.render(scene, camera)
         requestAnimationFrame(render)
       }
-      render()
+      render(0)
     </script>
   </body>
 </html>
