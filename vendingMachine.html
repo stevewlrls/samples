@@ -13,15 +13,23 @@
       body {
         font-family: Arial, Helvetica, sans-serif;
       }
+      #wrapper {
+        width: 400px;
+        margin: 10px auto;
+      }
       #wallet {
+        display: flex;
+        gap: 1em;
+        align-items: center;
+      }
+      #wallet img {
         width: 40px;
         aspect-ratio: 640 / 529;
         object-fit: contain;
       }
       #machine {
-        width: 400px;
-        margin: 10px auto;
         background-color: lightgray;
+        margin-top: 10px;
         border-radius: 12px;
         padding: 12px;
       }
@@ -69,30 +77,33 @@
     </style>
   </head>
   <body>
-    <div>
-      <img id="wallet" src="images/quarter-3407493_640.png" alt="Coin" />
-    </div>
-    <div id="machine">
-      <div class="coin-area">
-        <div id="coin-slot">
-          <svg viewBox="0 0 421 419" xmlns="http://www.w3.org/2000/svg">
-            <g transform="matrix(1,0,0,1,-216.791,-160.333)">
-              <g
-                transform="matrix(0.945544,-0.325495,0.325495,0.945544,-97.1234,159.107)"
-              >
-                <path
-                  d="M261.827,506.374L562.421,205.78L592.061,235.42L293.63,533.851L261.827,506.374Z"
-                  stroke="black"
-                  stroke-width="1px"
-                />
-              </g>
-            </g>
-          </svg>
-        </div>
-        <div id="display-panel"></div>
+    <div id="wrapper">
+      <div id="wallet">
+        <img src="images/quarter-3407493_640.png" alt="Coin" />
+        <span></span>
       </div>
-      <p>All drinks 50c</p>
-      <div id="drink-buttons"></div>
+      <div id="machine">
+        <div class="coin-area">
+          <div id="coin-slot">
+            <svg viewBox="0 0 421 419" xmlns="http://www.w3.org/2000/svg">
+              <g transform="matrix(1,0,0,1,-216.791,-160.333)">
+                <g
+                  transform="matrix(0.945544,-0.325495,0.325495,0.945544,-97.1234,159.107)"
+                >
+                  <path
+                    d="M261.827,506.374L562.421,205.78L592.061,235.42L293.63,533.851L261.827,506.374Z"
+                    stroke="black"
+                    stroke-width="1px"
+                  />
+                </g>
+              </g>
+            </svg>
+          </div>
+          <div id="display-panel"></div>
+        </div>
+        <p>All drinks 50c</p>
+        <div id="drink-buttons"></div>
+      </div>
     </div>
     <script>
       let wallet, slot, display
@@ -106,15 +117,18 @@
       class Wallet {
         constructor(id) {
           this.coins = []
-          const el = document.getElementById(id)
-          el.draggable = true
-          el.ondragstart = this.spendCoin.bind(this)
+          this.el = document.querySelector(`#${id} img`)
+          this.el.draggable = true
+          this.el.ondragstart = this.spendCoin.bind(this)
+          this.el.ondragend = this.removeCoin.bind(this)
+          this.showNext()
         }
         addMoney(coins) {
           this.coins.push(...coins)
+          this.showNext()
         }
         spendCoin(ev) {
-          const coin = this.coins.shift()
+          const coin = this.coins[0]
           if (coin) {
             console.log('Spending', coin)
             ev.dataTransfer.setData(
@@ -126,20 +140,32 @@
             ev.preventDefault()
           }
         }
+        removeCoin(ev) {
+          if (ev.dataTransfer.dropEffect !== 'none') {
+            this.coins.shift()
+            this.showNext()
+          }
+        }
+        showNext() {
+          const coin = this.coins[0]
+          this.el.nextElementSibling.innerText = coin
+            ? 'Next coin: ' + coin
+            : 'Wallet empty'
+        }
       }
 
       class DisplayPanel {
         constructor(id) {
-          this._value = 0
+          this.value = 0
           this.el = document.getElementById(id)
           this.update()
         }
         set value(val) {
-          this._value = val
+          this.value = val
           this.update()
         }
         update() {
-          this.el.innerText = (this._value / 100).toFixed(2)
+          this.el.innerText = (this.value / 100).toFixed(2)
         }
       }
 
