@@ -16,9 +16,7 @@
       #wallet {
         width: 40px;
         aspect-ratio: 640 / 529;
-        background: url('https://pixabay.com/get/gbd10e1fe9ea3cfcf9823e3e8f11d3d5228d4db69e254c04c36229cf05ad894d9548f2a2991c2b91041b860408db1034f86a3b91fa8c11233778ebaa9af35cf537541f03de5c6b2a84110e3745531e29a_640.png')
-          no-repeat;
-        background-size: contain;
+        object-fit: contain;
       }
       #machine {
         width: 400px;
@@ -71,7 +69,9 @@
     </style>
   </head>
   <body>
-    <div id="wallet"></div>
+    <div>
+      <img id="wallet" src="images/quarter-3407493_640.png" alt="Coin" />
+    </div>
     <div id="machine">
       <div class="coin-area">
         <div id="coin-slot">
@@ -192,7 +192,7 @@
           bn.className = 'drink-button'
           bn.title = hopper.drink.name
           bn.onclick = () => this.hopper.dispenseDrink()
-          image.src = 'https://pixabay.com/images/download/soda-575433_640.png'
+          image.src = 'images/soda-575433_640.png'
           image.alt = name
           bn.appendChild(image)
         }
