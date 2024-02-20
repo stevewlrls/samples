@@ -1,0 +1,36 @@
+.bg-pale-green {
+  background-color: rgb(160, 251, 200);
+}
+.bg-pale-amber {
+  background-color: rgb(255, 233, 168);
+}
+.bg-pale-blue {
+  background-color: rgb(165, 255, 255);
+}
+.bg-pale-rose {
+  background-color: rgb(255, 227, 227);
+}
+.bg-pale-mauve {
+  background-color: rgb(255, 198, 255);
+}
+.bg-pale-slate {
+  background-color: rgb(162, 176, 179);
+}
+.text-green {
+  color: rgb(14, 90, 14);
+}
+.text-gold {
+  color: rgb(225, 161, 0);
+}
+.text-blue {
+  color: rgb(24, 24, 122);
+}
+.text-rose {
+  color: rgb(207, 41, 0);
+}
+.text-mauve {
+  color: rgb(82, 5, 104);
+}
+.text-slate {
+  color: rgb(47, 73, 79);
+}
