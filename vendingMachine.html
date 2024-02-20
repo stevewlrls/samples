@@ -130,7 +130,6 @@
         spendCoin(ev) {
           const coin = this.coins[0]
           if (coin) {
-            console.log('Spending', coin)
             ev.dataTransfer.setData(
               'application/x-coin-payment',
               JSON.stringify({ coin })
@@ -142,6 +141,7 @@
         }
         removeCoin(ev) {
           if (ev.dataTransfer.dropEffect !== 'none') {
+            console.log('Spending', this.coins[0])
             this.coins.shift()
             this.showNext()
           }
@@ -160,7 +160,7 @@
           this.el = document.getElementById(id)
           this.update()
         }
-        set value(val) {
+        setValue(val) {
           this.value = val
           this.update()
         }
@@ -181,13 +181,13 @@
           const { coin } = JSON.parse(data)
           if (coin) {
             this.coins += coin
-            display.value = this.coins
+            display.setValue(this.coins)
           }
         }
         pay(amount) {
           if (this.coins < amount) return false
           this.coins -= amount
-          display.value = this.coins
+          display.setValue(this.coins)
           return true
         }
       }
