@@ -28,7 +28,9 @@
         object-fit: contain;
       }
       #machine {
-        background-color: lightgray;
+        width: 300px;
+        height: 600px;
+        background: url('images/machine.svg');
         margin-top: 10px;
         border-radius: 12px;
         padding: 12px;
@@ -42,21 +44,25 @@
         border-radius: 8px;
         width: min-content;
         padding: 8px 0px;
+        background-color: lightgray;
       }
       #coin-slot svg {
-        height: 40px;
+        height: 30px;
       }
       #display-panel {
-        background-color: black;
+        background-color: rgb(46, 115, 254);
         color: white;
         padding: 10px;
         font-family: 'Nova Mono';
-        font-size: 32px;
-        width: 3em;
+        font-size: 20px;
+        width: 2em;
         text-align: right;
+        margin-top: 8px;
       }
       #drink-buttons {
         display: flex;
+        flex-flow: column;
+        align-items: start;
         gap: 16px;
         margin: 16px 0px;
       }
@@ -73,6 +79,11 @@
       .drink-button:disabled {
         filter: grayscale(0.8);
         background-color: gray;
+      }
+      .panelText {
+        font-size: 10px;
+        color: white;
+        max-width: 80px;
       }
     </style>
   </head>
@@ -99,9 +110,9 @@
               </g>
             </svg>
           </div>
-          <div id="display-panel"></div>
         </div>
-        <p>All drinks 50c</p>
+        <div id="display-panel"></div>
+        <p class="panelText">All drinks 50&cent;</p>
         <div id="drink-buttons"></div>
       </div>
     </div>
