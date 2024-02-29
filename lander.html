@@ -3,6 +3,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Lunar Lander</title>
+    <meta
+      name="description"
+      content="Simple game to control a rocket landing"
+    />
     <style>
       body {
         margin: 0px;
@@ -10,13 +14,15 @@
       #moonscape {
         position: relative;
         height: 100vh;
+        background-image: url(images/universe-1607231_1280.jpg);
+        background-size: cover;
       }
       #rocket {
         position: absolute;
-        bottom: calc(100vh - 40px);
-        left: calc(50vw - 11px);
-        width: 22px;
-        height: 40px;
+        bottom: calc(100vh - 80px);
+        left: calc(50vw - 22px);
+        width: 44px;
+        height: 80px;
         transform: rotate(0deg);
       }
       #panel {
@@ -27,6 +33,8 @@
         top: 10px;
         right: 10px;
         padding: 10px;
+        background: white;
+        border-radius: 8px;
       }
     </style>
   </head>
@@ -40,8 +48,8 @@
         <span>Retro: <button type="button" id="retro">Inactive</button></span>
         <span
           >Thruster:
-          <button type="button" id="thrustLeft">&#x25C0;</button>&nbsp;
-          <button type="button" id="thrustRight">&#x25B6;</button>
+          <button type="button" id="thrustLeft">&#x25C4;</button>&nbsp;
+          <button type="button" id="thrustRight">&#x25BA;</button>
         </span>
       </div>
     </div>
@@ -56,7 +64,7 @@
       let rightButton = document.getElementById('thrustRight')
 
       // Set up initial state of rocket ship:
-      let pos = { x: window.innerWidth / 2 - 11, y: window.innerHeight - 40 }
+      let pos = { x: window.innerWidth / 2 - 22, y: window.innerHeight - 80 }
       let attitude = 0
       let retro = false
       let thruster = 0
