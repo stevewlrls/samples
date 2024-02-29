@@ -19,11 +19,11 @@
       }
       #rocket {
         position: absolute;
-        bottom: calc(100vh - 80px);
-        left: calc(50vw - 22px);
+        bottom: calc(100vh - 44px);
+        left: 0px;
         width: 44px;
         height: 80px;
-        transform: rotate(0deg);
+        transform: rotate(90deg);
       }
       #panel {
         position: absolute;
@@ -64,11 +64,11 @@
       let rightButton = document.getElementById('thrustRight')
 
       // Set up initial state of rocket ship:
-      let pos = { x: window.innerWidth / 2 - 22, y: window.innerHeight - 80 }
-      let attitude = 0
+      let pos = { x: 0, y: window.innerHeight - 44 }
+      let attitude = Math.PI / 2
       let retro = false
       let thruster = 0
-      let speed = { x: 0, y: 0 }
+      let speed = { x: 30, y: 0 }
 
       // Create a variable to record animation time:
       let lastTime
