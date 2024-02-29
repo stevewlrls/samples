@@ -40,8 +40,8 @@
     </div>
     <script>
       let position = 0
-      let rocket = document.getElementById('rocket')
-      let max = window.innerWidth - rocket.clientWidth
+      const rocket = document.getElementById('rocket')
+      const max = window.innerWidth - rocket.clientWidth
       function moveLeft() {
         if (position > 0) {
           position -= 10
