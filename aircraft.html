@@ -1,0 +1,38 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Aircraft Listing</title>
+    <style>
+      td:last-child {
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Aircraft</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Sign</th>
+          <th>Type</th>
+          <th>Pax</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script>
+      fetch('airport.json')
+        .then((rsp) => rsp.json())
+        .then((airport) => {
+          const tbody = document.querySelector('table > tbody')
+          for (const plane of airport.planes) {
+            const pax = airport.types[plane.type]?.pax
+            const row = document.createElement('tr')
+            row.innerHTML = `<td>${plane.sign}</td><td>${plane.type}</td><td>${pax}</td>`
+            tbody.appendChild(row)
+          }
+        })
+    </script>
+  </body>
+</html>

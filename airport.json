@@ -1,0 +1,16 @@
+{
+  "planes": [
+    { "sign": "GBAL", "type": "Lear" },
+    { "sign": "AEHQ", "type": "B737" },
+    { "sign": "DOZR", "type": "F70" },
+    { "sign": "GQEA", "type": "F27" },
+    { "sign": "DEWR", "type": "B737" },
+    { "sign": "AYTT", "type": "C150" }
+  ],
+  "types": {
+    "Lear": { "engine": "jet", "pax": 8 },
+    "F70": { "engine": "jet", "pax": 70 },
+    "B737": { "engine": "jet", "pax": 110 },
+    "C150": { "engine": "prop", "pax": 1 }
+  }
+}
