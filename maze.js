@@ -50,7 +50,8 @@ function moveRabbit(r, c) {
 }
 
 function mazeAt(r, c) {
-  return layout[r][c]
+  const row = layout[r]
+  return row && row[c]
 }
 
 // Set up maze:
