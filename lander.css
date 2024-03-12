@@ -1,0 +1,28 @@
+body {
+  margin: 0px;
+}
+#moonscape {
+  position: relative;
+  height: 100vh;
+  background-image: url(images/universe-1607231_1280.jpg);
+  background-size: cover;
+}
+#rocket {
+  position: absolute;
+  bottom: calc(100vh - 44px);
+  left: 0px;
+  width: 44px;
+  height: 80px;
+  transform: rotate(90deg);
+}
+#panel {
+  position: absolute;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.6em;
+  top: 10px;
+  right: 10px;
+  padding: 10px;
+  background: white;
+  border-radius: 8px;
+}
