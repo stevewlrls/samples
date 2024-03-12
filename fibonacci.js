@@ -11,9 +11,7 @@
 
 const m = new Array()
 function F(n) {
-  if (n < 2) return 1
-  if (m[n]) return m[n]
-  return F(n - 1) + F(n - 2)
+  return n < 2 ? 1 : m[n] ? m[n] : (m[n] = F(n - 1) + F(n - 2))
 }
 
 console.log(F(10))
