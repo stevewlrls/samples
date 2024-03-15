@@ -1,0 +1,76 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+#wrapper {
+  width: 400px;
+  margin: 10px auto;
+}
+#wallet {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+#wallet img {
+  width: 40px;
+  aspect-ratio: 640 / 529;
+  object-fit: contain;
+}
+#machine {
+  width: 300px;
+  height: 600px;
+  background: url('images/machine.svg');
+  background-size: contain;
+  margin-top: 10px;
+  border-radius: 12px 12px 0px 0px;
+  padding: 12px;
+}
+.coin-area {
+  display: flex;
+  gap: 12px;
+}
+#coin-slot {
+  border: 1px solid black;
+  border-radius: 8px;
+  width: min-content;
+  padding: 8px 0px;
+  background-color: lightgray;
+}
+#coin-slot img {
+  height: 30px;
+}
+#display-panel {
+  background-color: rgb(46, 115, 254);
+  color: white;
+  padding: 10px;
+  font-family: 'Nova Mono';
+  font-size: 20px;
+  width: 2em;
+  text-align: right;
+  margin-top: 8px;
+}
+#drink-buttons {
+  display: flex;
+  flex-flow: column;
+  align-items: start;
+  gap: 16px;
+  margin: 16px 0px;
+}
+.drink-button {
+  border: 1px solid darkgray;
+  background-color: white;
+  border-radius: 6px;
+  padding: 2px 8px;
+}
+.drink-button img {
+  height: 48px;
+  width: auto;
+}
+.drink-button:disabled {
+  filter: grayscale(0.8);
+  background-color: gray;
+}
+.panelText {
+  font-size: 10px;
+  color: white;
+  max-width: 80px;
+}
