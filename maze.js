@@ -56,7 +56,7 @@ function mazeAt(r, c) {
 
 // Set up maze:
 for (const row of layout) {
-  for (const c of Array.from(row)) {
+  for (const c of row) {
     let el = new Image(40, 40)
     el.src = c === 'x' ? goal : c === ' ' ? path : hedge
     maze.appendChild(el)
